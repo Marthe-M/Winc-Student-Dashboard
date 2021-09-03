@@ -6,6 +6,7 @@ A tool to keep track of student information and their scores and ratings
 ### Languages, Libraries & Frameworks:
 - React
 - JavaScript
+- VictoryChart
 - CSS
 - HTML
 
