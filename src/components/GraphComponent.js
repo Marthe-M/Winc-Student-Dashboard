@@ -1,47 +1,47 @@
-import React from 'react';
+import React from 'react'
 import {
   VictoryBar,
   VictoryChart,
   VictoryAxis,
   VictoryGroup,
-  VictoryLine,
-} from 'victory';
+  VictoryLine
+} from 'victory'
 class GraphComponent extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {difficulty: true, fun: true, isButtonClicked: true};
-    this.showDifficulty = this.showDifficulty.bind(this);
-    this.showLineGraph = this.showLineGraph.bind(this);
+  constructor (props) {
+    super(props)
+    this.state = { difficulty: true, fun: true, isButtonClicked: true }
+    this.showDifficulty = this.showDifficulty.bind(this)
+    this.showLineGraph = this.showLineGraph.bind(this)
   }
 
-  showDifficulty() {
-    this.setState({difficulty: !this.state.difficulty});
+  showDifficulty () {
+    this.setState({ difficulty: !this.state.difficulty })
   }
 
-  showFun() {
-    this.setState({fun: !this.state.fun});
+  showFun () {
+    this.setState({ fun: !this.state.fun })
   }
 
-  showLineGraph() {
-    this.setState({isButtonClicked: !this.state.isButtonClicked});
+  showLineGraph () {
+    this.setState({ isButtonClicked: !this.state.isButtonClicked })
   }
 
-  render() {
-    const graphData = this.props.averageData;
+  render () {
+    const graphData = this.props.averageData
     return (
-      <div className="Graph">
+      <div className='Graph'>
         <VictoryChart
           height={175}
-          maxDomain={{x: 40}}
-          padding={{left: 25, top: 25, right: 10, bottom: 75}}
+          maxDomain={{ x: 40 }}
+          padding={{ left: 25, top: 25, right: 10, bottom: 75 }}
         >
           <VictoryAxis
             dependentAxis
-            domain={{y: [0, 5.2]}}
+            domain={{ y: [0, 5.2] }}
             style={{
               tickLabels: {
-                fontSize: 5,
-              },
+                fontSize: 5
+              }
             }}
           />
           <VictoryAxis
@@ -50,73 +50,73 @@ class GraphComponent extends React.Component {
               tickLabels: {
                 fontSize: 5,
                 textAnchor: 'end',
-                angle: -45,
-              },
+                angle: -45
+              }
             }}
           />
           {this.state.isButtonClicked ? (
-            <VictoryGroup offset={4} style={{data: {width: 8}}}>
+            <VictoryGroup offset={4} style={{ data: { width: 8 } }}>
               {this.state.difficulty ? (
                 <VictoryBar
                   data={graphData}
-                  x="name"
-                  y="level"
+                  x='name'
+                  y='level'
                   barWidth={3}
-                  style={{data: {fill: 'tomato'}}}
+                  style={{ data: { fill: 'rgb(0, 143, 199)' } }}
                 />
               ) : (
                 <VictoryBar
                   data={graphData}
-                  x="name"
-                  y="level"
+                  x='name'
+                  y='level'
                   barWidth={3}
-                  style={{data: {opacity: 0}}}
+                  style={{ data: { opacity: 0 } }}
                 />
               )}
               {this.state.fun ? (
                 <VictoryBar
                   data={graphData}
-                  x="name"
-                  y="fun"
+                  x='name'
+                  y='fun'
                   barWidth={3}
-                  style={{data: {fill: 'gold'}}}
+                  style={{ data: { fill: 'rgb(209, 143, 0)' } }}
                 />
               ) : (
                 <VictoryBar
                   data={graphData}
-                  x="name"
-                  y="fun"
+                  x='name'
+                  y='fun'
                   barWidth={3}
-                  style={{data: {opacity: 0}}}
+                  style={{ data: { opacity: 0 } }}
                 />
               )}
             </VictoryGroup>
           ) : (
             <VictoryGroup
-              colorScale={['tomato', 'gold']}
+              colorScale={['rgb(0, 143, 199)', 'rgb(209, 143, 0)']}
               offset={4}
-              style={{data: {width: 8}}}
+              style={{ data: { width: 8 } }}
             >
               {this.state.difficulty ? (
-                <VictoryLine data={graphData} x="name" y="level" barWidth={3} />
+                <VictoryLine data={graphData} x='name' y='level' barWidth={3} />
               ) : (
                 <VictoryLine
                   data={graphData}
-                  x="name"
-                  y="level"
+                  x='name'
+                  y='level'
                   barWidth={3}
-                  style={{data: {opacity: 0}}}
+                  style={{ data: { opacity: 0 } }}
                 />
               )}
               {this.state.fun ? (
-                <VictoryLine data={graphData} x="name" y="fun" barWidth={3} />
+                <VictoryLine data={graphData} x='name' y='fun' barWidth={3} />
               ) : (
                 <VictoryLine
                   data={graphData}
-                  x="name"
-                  y="fun"
+                  x='name'
+                  y='fun'
                   barWidth={3}
-                  style={{data: {opacity: 0}}}
+                  style={{ data: { opacity: 0 } }}
                 />
               )}
             </VictoryGroup>
@@ -132,8 +132,8 @@ class GraphComponent extends React.Component {
           {this.state.isButtonClicked ? 'Show line graph' : 'Show bar graph'}
         </button>
       </div>
-    );
+    )
   }
 }
 
-export default GraphComponent;
+export default GraphComponent
