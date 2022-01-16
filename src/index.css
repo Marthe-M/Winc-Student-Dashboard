@@ -1,7 +1,11 @@
+@font-face {
+  font-family: josefin;
+  src: url(./assets/JosefinSans-VariableFont_wght.ttf);
+}
+
 body {
-  font-family: Helvetica, sans-serif;
-  background-image: url("./images/background3.jpg");
-  background-repeat: round;
+  font-family: josefin;
+  background-color: rgb(230, 231, 231);
 }
 
 .header {

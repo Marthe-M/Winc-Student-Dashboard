@@ -1,26 +1,26 @@
-import React from 'react';
+import React from 'react'
 
 class Student extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleClick = this.handleClick.bind(this);
-    this.handleClickRemove = this.handleClickRemove.bind(this);
-    this.state = {isButtonClicked: false};
+  constructor (props) {
+    super(props)
+    this.handleClick = this.handleClick.bind(this)
+    this.handleClickRemove = this.handleClickRemove.bind(this)
+    this.state = { isButtonClicked: false }
   }
 
-  handleClick() {
-    this.setState({isButtonClicked: true});
+  handleClick () {
+    this.setState({ isButtonClicked: true })
   }
 
-  handleClickRemove() {
-    this.setState({isButtonClicked: false});
+  handleClickRemove () {
+    this.setState({ isButtonClicked: false })
   }
 
-  render() {
-    const {isButtonClicked} = this.state;
+  render () {
+    const { isButtonClicked } = this.state
     if (isButtonClicked) {
       return (
-        <li className="list-item">
+        <li className='list-item'>
           <p>
             Name:
             <br /> {this.props.first_name} {this.props.last_name}
@@ -41,11 +41,11 @@ class Student extends React.Component {
             Show less info
           </button>
         </li>
-      );
+      )
     } else {
       return (
-        <div className="list-item">
-          <img src={this.props.photo} alt="Photo" className="studentimg" />
+        <div className='list-item'>
+          <img src={this.props.photo} alt='Student' className='studentimg' />
           <br />
           <p>
             {this.props.first_name} {this.props.last_name}
@@ -54,8 +54,8 @@ class Student extends React.Component {
           <button onClick={() => this.handleClick()}>Show more info</button>
           <br />
         </div>
-      );
+      )
     }
   }
 }
-export default Student;
+export default Student
